@@ -1,63 +1,93 @@
+
 body {
     font-family: "Raleway", sans-serif;
-    font-size: 150%;
-    /* background: linear-gradient(112.1deg, rgba(32, 38, 57, 0.8) 11.4%, rgba(63, 76, 119, 0.9) 70.2%); */
+    font-size: 125%;
+    margin: 0;
+}
+.backgroundpic {
+    height: 100vh;
+    background-image: url("../images/main-building.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.backgroundpic::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.55),
+        rgba(0, 0, 0, 0.25),
+        rgba(0, 0, 0, 0)
+    );
+    pointer-events: none;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 95%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 30px;
+    background: transparent;              /* start transparent over hero */
+    z-index: 1000;
+
+    transition: background-color 220ms ease, box-shadow 220ms ease;
+}
+
+.navbar.solid {
+    background: white;
+    box-shadow: 0 6px 20px rgba(10, 10, 20, 0.08);
 }
 
 #gcem {
-    position: relative;
-    padding: 30px 40px;
-    margin: 20px;
-}
-
-#accred {
-    position: relative;
-    left: 50%;
-    padding: 30px 40px;
-    margin: 20px;
+    height: 60px;
 }
 
 .nav-bar {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    gap: 10px;
 }
 
 .tab {
-    display: inline-block;
-    padding: 20px 40px;
-    border: none;
-    background-color: rgb(17, 17, 90);
-    color: white;
+    padding: 10px 15px;
+    background: none;
+    color: white;                /* visible over hero */
     font-weight: bold;
     text-decoration: none;
-    transition: all ease-in-out 1ms; 
+    transition: color 180ms ease;
 }
 
-.tab:hover {
-    background-color: rgb(53, 53, 224);
-    color: white;
+.navbar.solid .tab {
+    color: rgb(17, 17, 90);
 }
 
+main {
+    padding: 60px 60px;
+}
+
+/* ---------- content / existing styles ---------- */
 .home-div {
     max-width: 1400px;
     margin: 0 auto;
-    gap: 50px;
     padding: 10px;
 }
 
 .about-gcem {
     display: flex;
     justify-content: space-between;
-    max-width: 1400px;
-    margin: 0 auto;
-    gap: 50px;
-    padding: 10px;
+    gap: 100px;
 }
-
-/* .about-gcem-p {
-    
-} */
 
 .about-gcem-img,
 .about-gcem-p {
@@ -73,29 +103,26 @@ body {
     overflow: hidden;
 }
 
-
-.about-gcem-img>img {
-    display: block;
-    padding: 50px;
-    width: 95%;
-    transition: all ease-in-out 0.2s;
+.about-gcem-img img {
+    width: 80%;
+    padding: 20px;
+    transition: transform 0.2s;
 }
 
-.about-gcem-img>img:hover {
+.about-gcem-img img:hover {
     transform: scale(1.15);
-
 }
 
 .course-flex {
     display: grid;
-    grid-template-columns: repeat(3, 400px);
+    grid-template-columns: repeat(3, 360px);
+    gap: 60px;
     justify-content: center;
-    gap: 100px;
 }
 
 .course-flex img {
-    width: 400px;
-    height: 225px;
+    width: 350px;
+    height: 175px;
     object-fit: cover;
 }
 
@@ -104,24 +131,174 @@ body {
     opacity: 0.5;
 }
 
-iframe {
-    padding-bottom: 100px;
-}
-/* .video {
-    display: block;
-    margin: 0 auto;
-    width: 80%;
-    max-width: 900px;
-} */
-
-footer>div {
+footer > div {
     text-align: center;
-    border: 1px solid rgb(17, 17, 90);
     background-color: rgb(17, 17, 90);
     color: white;
 }
 
 footer a {
+    color: rgba(173, 255, 255, 0.8);
     text-decoration: none;
-    color:rgba(173, 255, 255, 0.801);
 }
+
+.about-gcem-p p {
+    text-align: justify;
+}
+
+/* ---------- dropdown visual rules ---------- */
+/* base wrapper */
+.dropdown {
+    position: relative;
+}
+
+/* dropdown panel default: transparent + blur (good over hero) */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    font-size: 90%;
+    line-height: 1.8;
+    background: rgba(255,255,255,0.08);     /* subtle translucent base */
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    color: white;
+    padding: 8px 8px;
+    min-width: 180px;
+    margin: 0;
+    display: none;
+    flex-direction: column;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    z-index: 1100;
+    border-radius: 6px;
+    transition: background-color 180ms ease, color 180ms ease, backdrop-filter 180ms ease;
+}
+
+/* items inside dropdown */
+.dropdown-menu .dropdown-link,
+.dropdown-menu > a {
+    display: block;
+    padding: 10px 14px;
+    text-decoration: none;
+    color: inherit;      /* inherits white or dark depending on state */
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+/* slight hover glow when on transparent */
+.dropdown-menu .dropdown-link:hover,
+.dropdown-menu > a:hover {
+    background: rgba(255,255,255,0.06);
+}
+
+/* show dropdown on hover of parent */
+.dropdown:hover .dropdown-menu {
+    display: flex;
+}
+
+/* ---------- side (fly-out) submenu rules ---------- */
+.has-side-dropdown {
+    position: relative;
+}
+
+/* side menu (default translucent over hero) */
+.side-dropdown {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    margin-left: 8px;
+    min-width: 220px;
+    background: rgba(255,255,255,0.08);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    display: none;
+    flex-direction: column;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    border-radius: 6px;
+    z-index: 1200;
+    transition: background-color 180ms ease, backdrop-filter 180ms ease;
+}
+
+.has-side-dropdown:hover .side-dropdown {
+    display: flex;
+}
+
+.side-dropdown a {
+    padding: 10px 14px;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.side-dropdown a:hover { background: rgba(255,255,255,0.06); }
+
+/* ---------- department item panels (third-level) ---------- */
+.dept-item { position: relative; }
+
+.dept-panel {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    margin-left: 8px;
+    min-width: 220px;
+    background: rgba(255,255,255,0.08);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    display: none;
+    flex-direction: column;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    border-radius: 6px;
+    z-index: 1300;
+    transition: background-color 180ms ease, backdrop-filter 180ms ease;
+}
+
+.dept-item:hover .dept-panel { display: flex; }
+
+.dept-panel a { padding: 10px 14px; display: block; text-decoration: none; color: inherit; font-weight: 600; white-space: nowrap; }
+.dept-panel a:hover { background: rgba(255,255,255,0.06); }
+
+/* ---------- SWITCH dropdowns to solid white when navbar is solid ---------- */
+/* When the navbar has .solid (i.e. scrolled), force dropdowns to white for readability */
+.navbar.solid .dropdown-menu,
+.navbar.solid .side-dropdown,
+.navbar.solid .dept-panel {
+    background: rgba(255,255,255,0.98);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    color: rgb(17,17,17);
+}
+
+/* ensure link colors when navbar is solid */
+.navbar.solid .dropdown-menu .dropdown-link,
+.navbar.solid .dropdown-menu > a,
+.navbar.solid .side-dropdown a,
+.navbar.solid .dept-panel a {
+    color: rgb(17,17,17);
+}
+
+/* hover style for solid panels */
+.navbar.solid .dropdown-menu .dropdown-link:hover,
+.navbar.solid .dropdown-menu > a:hover,
+.navbar.solid .side-dropdown a:hover,
+.navbar.solid .dept-panel a:hover {
+    background: #f5f7fb;
+}
+
+/* ---------- small-screen fallback ---------- */
+@media (max-width: 900px) {
+    .nav-bar { gap: 6px; }
+    /* on small screens, make dropdowns static blocks (tap-based fallback) */
+    .dropdown-menu, .side-dropdown, .dept-panel {
+        position: static !important;
+        box-shadow: none;
+        margin: 6px 0;
+        display: none;
+        backdrop-filter: none;
+        background: white;
+    }
+    /* allow the top-level dropdown to show on hover (or you can implement click toggles later) */
+    .dropdown:hover .dropdown-menu { display: block; }
+}
+

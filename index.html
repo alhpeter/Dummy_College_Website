@@ -6,86 +6,213 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&display=swap" rel="stylesheet">
     <title>College Website</title>
 </head>
+
 <body>
-    <img src="images/gopalanlogo.png" alt="GCEM Logo" id = "gcem">
-    <img src = "images/nba.png" alt = "VTU Logo" id = "accred">
-    <div class = "nav-bar">
-        <a href="home.html" class = "tab">Home</a>
-        <a href="aboutus.html" class = "tab">About Us</a>
-        <a href="academics.html" class = "tab">Academics</a>
-        <a href="campuslife.html" class = "tab">Campus Life</a>
-        <a href="events.html" class = "tab">Events</a>
-        <a href="gallery.html" class = "tab">Gallery</a>
-        <a href="contactus.html" class = "tab">Contact Us</a>
-    </div>
+
+    <!-- 🔹 NEW: one wrapper for logo + nav -->
+    <header class="navbar">
+        <img src="images/gcem-logo.svg" alt="GCEM Logo" id="gcem">
+
+        <div class="nav-bar">
+            <div>
+                <a href="index.html" class="tab">Home</a>
+            </div>
+            <div>
+                <a href="aboutus.html" class="tab">About Us</a>
+            </div>
+            <div class="dropdown">
+                <a href="academics.html" class="tab">Academics</a>
+
+                <div class="dropdown-menu">
+
+                    <!-- DEPARTMENTS (side menu with per-department panels) -->
+                    <div class="has-side-dropdown">
+                        <a href="#" class="dropdown-link">Departments ▸</a>
+
+                        <div class="side-dropdown">
+                            <!-- dept item with its own panel -->
+                            <div class="dept-item has-submenu">
+                                <a href="#">ISE</a>
+                                <div class="dept-panel">
+                                    <a href="subpages/academics/ISE/aboutise.html">About ISE</a>
+                                    <a href="subpages/academics/ISE/isefaculty.html">ISE Faculty</a>
+                                    <a href="subpages/academics/ISE/">ISE Syllabus</a>
+                                </div>
+                            </div>
+
+                            <div class="dept-item has-submenu">
+                                <a href="#">CSE</a>
+                                <div class="dept-panel">
+                                    <a href="#">About CSE</a>
+                                    <a href="#">CSE Faculty</a>
+                                    <a href="#">CSE Labs</a>
+                                    <a href="#">CSE Syllabus</a>
+                                </div>
+                            </div>
+
+                            <div class="dept-item has-submenu">
+                                <a href="#">ECE</a>
+                                <div class="dept-panel">
+                                    <a href="#">About ECE</a>
+                                    <a href="#">ECE Faculty</a>
+                                    <a href="#">ECE Labs</a>
+                                    <a href="#">ECE Syllabus</a>
+                                </div>
+                            </div>
+
+                            <div class="dept-item has-submenu">
+                                <a href="#">CSE (AI &amp; ML)</a>
+                                <div class="dept-panel">
+                                    <a href="#">About AI &amp; ML</a>
+                                    <a href="#">Faculty</a>
+                                    <a href="#">Research</a>
+                                    <a href="#">CSE AI & ML Syllabus</a>
+                                </div>
+                            </div>
+
+                            <div class="dept-item has-submenu">
+                                <a href="#">CSE (AI &amp; DS)</a>
+                                <div class="dept-panel">
+                                    <a href="#">About AI &amp; DS</a>
+                                    <a href="#">Faculty</a>
+                                    <a href="#">Study Material</a>
+                                    <a href="#">CSE AI & DS Syllabus</a>
+                                </div>
+                            </div>
+
+                            <div class="dept-item has-submenu">
+                                <a href="#">Aeronautical</a>
+                                <div class="dept-panel">
+                                    <a href="#">About Aero</a>
+                                    <a href="#">Faculty</a>
+                                    <a href="#">Labs &amp; Projects</a>
+                                    <a href="#">Aero Syllabus</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dropdown">
+                <a href="campuslife.html" class="tab">Campus Life</a>
+
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-link">Hostel</a>
+                    <a href="#" class="dropdown-link">Clubs</a>
+                    <a href="#" class="dropdown-link">Sports</a>
+                </div>
+            </div>
+
+            <div>
+                <a href="events.html" class="tab">Events</a>
+            </div>
+            <div>
+                <a href="gallery.html" class="tab">Gallery</a>
+            </div>
+            <div>
+                <a href="contactus.html" class="tab">Contact Us</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 🔹 NEW: hero image section -->
+    <section class="backgroundpic"></section>
+
     <main>
-        <div class = "home-div">
-        <div class = "about-gcem">
-            <div class = "about-gcem-p">
-                <p class = "heading">About Gopalan College of Engineering and Management</p>
-                <p>An AICTE approved college affiliated to VTU, Gopalan College of Engineering and Management (GCEM) offers a state-of-the-art infrastructure, updated software and technology, modern workshops, seminar halls, auditoriums, sports amenities and well-stocked libraries.
-                The institute focuses on creating an environment that encourages and provides for holistic development. We aim to ensure the students technical know-how and domain excellence which gives them an edge over.</p>
+        <div class="home-div">
+
+            <div class="about-gcem">
+                <div class="about-gcem-p">
+                    <h1 class="heading">About Gopalan College of Engineering and Management</h1>
+                    <p>
+                        An AICTE approved college affiliated to VTU, Gopalan College of Engineering and Management (GCEM)
+                        offers a state-of-the-art infrastructure, updated software and technology, modern workshops,
+                        seminar halls, auditoriums, sports amenities and well-stocked libraries.
+                    </p>
+                </div>
+
+                <div class="about-gcem-img">
+                    <img src="images/gcembuilding.jpg" alt="GCEM Building">
+                </div>
             </div>
-            <div class = "about-gcem-img">
-                <img src="images/gcembuilding.jpg" alt="GCEM Building">
+
+            <div class="courses-offered">
+                <p class="heading">Courses Offered</p>
+
+                <div class="course-flex">
+                    <div class="course">
+                        <img src="images/cse.jpg">
+                        <p>Computer Science and Engineering (CSE)</p>
+                    </div>
+
+                    <div class="course">
+                        <img src="images/ise.jpg">
+                        <a href="subpages/academics/department.html/ise-info.html">
+                            <p>Information Science and Engineering (ISE)</p>
+                        </a>
+                    </div>
+
+                    <div class="course">
+                        <img src="images/aiml.jpg">
+                        <a href="subpages/academics/"></a>
+                        <p>Computer Science and Engineering (AI & ML)</p>
+                    </div>
+
+                    <div class="course">
+                        <img src="images/aids.jpg">
+                        <p>Computer Science and Engineering (AI & DS)</p>
+                    </div>
+
+                    <div class="course">
+                        <img src="images/aero.jpg">
+                        <p>Aeronautical Engineering</p>
+                    </div>
+
+                    <div class="course">
+                        <img src="images/ece.jpg">
+                        <p>Electronics and Communication Engineering (ECE)</p>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="courses-offered">
-    <p class="heading">Courses Offered</p>
 
-    <div class = "course-flex">
-        <div class="course">
-            <img src="images/cse.jpg" alt="Computer Science and Engineering">
-            <p>Computer Science and Engineering (CSE)</p>
-        </div>
-        <div class="course">
-            <img src="images/ise.jpg" alt="Information Science and Engineering">
-            <p>Information Science and Engineering (ISE)</p>
-        </div>
+            <div class="promo-vid">
+                <p class="heading">Promotional Video</p>
+                <iframe
+                    width="1280"
+                    height="720"
+                    src="https://www.youtube.com/embed/0eScJvLDNBo?start=11"
+                    allowfullscreen>
+                </iframe>
+            </div>
 
-        <div class="course">
-            <img src="images/aiml.jpg" alt="Computer Science and Engineering - AI & ML">
-            <p>Computer Science and Engineering (AI & ML)</p>
         </div>
-
-        <div class="course">
-            <img src="images/aids.jpg" alt="Computer Science and Engineering - AI & DS">
-            <p>Computer Science and Engineering (AI & DS)</p>
-        </div>
-
-        <div class="course">
-            <img src="images/aero.jpg" alt="Aeronautical Engineering">
-            <p>Aeronautical Engineering</p>
-        </div>
-
-        <div class="course">
-            <img src="images/ece.jpg" alt="Electronics and Communication Engineering">
-            <p>Electronics and Communication Engineering (ECE)</p>
-        </div>
-    </div>
-    </div>
-    <div class="promo-vid">
-        <p class = "heading">Promotional Video</p>
-        <iframe 
-            width="1280" 
-            height="720"
-            src="https://www.youtube.com/embed/0eScJvLDNBo?start=11"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-            class = "video">
-        </iframe>
-
-    </div>
     </main>
+
     <footer>
         <div>
-            This website was created by <a href="https://www.linkedin.com/in/aleena-harold-peter-026267321" target = "_blank">Aleena Harold Peter</a> and hosted on <a href = "">GitHub</a>
+            This website was created by
+            <a href="https://www.linkedin.com/in/aleena-harold-peter-026267321" target="_blank">
+                Aleena Harold Peter
+            </a>
         </div>
     </footer>
+
+    <!-- 🔹 NEW: navbar scroll behavior -->
+    <script>
+        const navbar = document.querySelector(".navbar");
+
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > window.innerHeight - 100) {
+                navbar.classList.add("solid");
+            } else {
+                navbar.classList.remove("solid");
+            }
+        });
+    </script>
+
 </body>
 </html>
