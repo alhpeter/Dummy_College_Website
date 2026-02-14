@@ -55,9 +55,19 @@ body {
 }
 
 .nav-bar {
+    
     display: flex;
-    gap: 10px;
+    gap: 25px;
+    align-items: center;
+
+
 }
+
+.navbar.solid .tab:hover {
+    color: rgb(17,17,90);
+    opacity: 0.8;
+}
+
 
 .tab {
     padding: 10px 15px;
@@ -67,6 +77,11 @@ body {
     text-decoration: none;
     transition: color 180ms ease;
 }
+
+.tab:hover {
+    color: #ffd369;
+}
+
 
 .navbar.solid .tab {
     color: rgb(17, 17, 90);
@@ -133,9 +148,12 @@ main {
 
 footer > div {
     text-align: center;
-    background-color: rgb(17, 17, 90);
+    background: linear-gradient(90deg, rgb(17,17,90), rgb(25,25,120));
     color: white;
+    padding: 18px;
+    font-size: 0.95rem;
 }
+
 
 footer a {
     color: rgba(173, 255, 255, 0.8);
@@ -207,7 +225,7 @@ footer a {
     position: absolute;
     top: 0;
     left: 100%;
-    margin-left: 8px;
+    
     min-width: 220px;
     background: rgba(255,255,255,0.08);
     -webkit-backdrop-filter: blur(8px);
@@ -241,7 +259,7 @@ footer a {
     position: absolute;
     top: 0;
     left: 100%;
-    margin-left: 8px;
+    
     min-width: 220px;
     background: rgba(255,255,255,0.08);
     -webkit-backdrop-filter: blur(8px);
@@ -299,6 +317,7 @@ footer a {
         background: white;
     }
     /* allow the top-level dropdown to show on hover (or you can implement click toggles later) */
-    .dropdown:hover .dropdown-menu { display: block; }
+    .dropdown:hover > .dropdown-menu {
+    display: flex;
 }
-
+}

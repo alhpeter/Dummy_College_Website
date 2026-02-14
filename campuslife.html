@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hostel — GCEM</title>
+
+  <!-- your main stylesheet (unchanged) -->
+  
+  <!-- page-specific styles (keeps global styles untouched) -->
+  <style>
+
+    body {
+        font-size: 90%;
+    }
+    
+
+    main { padding: 2.4rem 1rem 4rem; background: linear-gradient(180deg, var(--surface), #fff); min-height:72vh; }
+
+    .hostel {
+      max-width: 980px;
+      margin: 0 auto;
+      background: var(--card-bg);
+      border-radius: 14px;
+      box-shadow: 0 8px 30px rgba(12,18,30,0.06);
+      padding: 1.6rem;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 1.25rem;
+      align-items:start;
+      color: #12202a;
+      line-height: 1.6;
+    }
+
+    /* Responsive */
+    @media (max-width: 920px){
+      .hostel { grid-template-columns: 1fr; padding:1rem; }
+    }
+
+    .hostel h3{ margin-top:0; font-size:1.35rem; color: #0b2b2a; }
+    .hostel img{ width:100%; height:200px; object-fit:cover; border-radius:10px; display:block; box-shadow: 0 8px 28px rgba(8,20,28,0.06); }
+
+    .lead { color:var(--muted); margin-bottom:0.9rem; font-size:0.98rem; }
+
+    .hostel .card {
+      background: linear-gradient(180deg,#ffffff,#fbffff);
+      padding: 0.9rem;
+      border-radius:10px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.5);
+    }
+
+    .facilities { list-style: disc; padding-left:1.05rem; color:var(--muted); margin-top:0.5rem; }
+
+    .quick-facts { display:flex; flex-direction:column; gap:0.6rem; }
+    .fact {
+      display:flex;
+      gap:0.75rem;
+      align-items:center;
+      background: #f6fffe;
+      border-left:4px solid var(--accent);
+      padding:0.6rem 0.75rem;
+      border-radius:8px;
+      font-weight:600;
+      color:#0c2f2e;
+    }
+    .fact small{ display:block; font-size:0.78rem; font-weight:400; color:var(--muted); }
+
+    details { margin-top:1rem; border-top:1px dashed rgba(10,20,20,0.04); padding-top:1rem; }
+    summary{
+      cursor:pointer;
+      font-weight:700;
+      list-style:none;
+      outline:none;
+      padding:0.25rem 0;
+      color:#0b2b2a;
+    }
+    details[open] summary::after { content: " ▲"; color:var(--muted); font-weight:600; margin-left:8px; }
+    details summary::after { content: " ▼"; color:var(--muted); font-weight:600; margin-left:8px; }
+
+    .rules { color:var(--muted); font-size:0.95rem;  }
+
+    .actions { margin-top:1rem; display:flex; gap:0.5rem; flex-wrap:wrap; }
+    .btn {
+      display:inline-block;
+      padding:0.5rem 0.85rem;
+      border-radius:8px;
+      background:var(--accent);
+      color:white;
+      text-decoration:none;
+      font-weight:700;
+      box-shadow: 0 8px 18px rgba(14,165,163,0.12);
+    }
+    .btn.alt {
+      background:transparent;
+      border:1px solid rgba(6,20,20,0.06);
+      color: #0b2b2a;
+      font-weight:600;
+    }
+
+    /* tidy ordered lists inside the hidden rules */
+    .rules ol { padding-left:1.05rem; color:var(--muted); }
+    .rules li{ margin:0.45rem 0; }
+  </style>
+  <link rel="stylesheet" href="css/styles2.css">
+
+</head>
+<body>
+
+  <!-- header (unchanged) -->
+  <header class="navbar">
+        <img src="images/gcem-logo.svg" alt="GCEM Logo" id="gcem">
+
+        <div class="nav-bar">
+            <div>
+                <a href="index.html" class="tab">Home</a>
+            </div>
+            <div>
+                <a href="aboutus.html" class="tab">About Us</a>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="tab">Academics</a>
+
+                <div class="dropdown-menu">
+
+                    <!-- DEPARTMENTS (side menu with per-department panels) -->
+                    <div class="has-side-dropdown">
+                        <a href="#" class="dropdown-link">Departments ▸</a>
+
+                        <div class="side-dropdown">
+                            <!-- dept item with its own panel -->
+                            <div class="dept-item has-submenu">
+                                <a href="#">ISE</a>
+                                <div class="dept-panel">
+                                    <a href="subpages/academics/ISE/aboutise.html">About ISE</a>
+                                    <a href="subpages/academics/ISE/isefaculty.html">ISE Faculty</a>
+                                    <a href="subpages/academics/ISE/">ISE Syllabus</a>
+                                </div>
+                            </div>
+
+                            <div class="dept-item has-submenu">
+                                <a href="#">CSE</a>
+                                <div class="dept-panel">
+                                    <a href="#">About CSE</a>
+                                    <a href="#">CSE Faculty</a>
+                                    <a href="#">CSE Labs</a>
+                                    <a href="#">CSE Syllabus</a>
+                                </div>
+                            </div>
+
+                            <div class="dept-item has-submenu">
+                                <a href="#">ECE</a>
+                                <div class="dept-panel">
+                                    <a href="#">About ECE</a>
+                                    <a href="#">ECE Faculty</a>
+                                    <a href="#">ECE Labs</a>
+                                    <a href="#">ECE Syllabus</a>
+                                </div>
+                            </div>
+
+                            <div class="dept-item has-submenu">
+                                <a href="#">CSE (AI &amp; ML)</a>
+                                <div class="dept-panel">
+                                    <a href="#">About AI &amp; ML</a>
+                                    <a href="#">Faculty</a>
+                                    <a href="#">Research</a>
+                                    <a href="#">CSE AI & ML Syllabus</a>
+                                </div>
+                            </div>
+
+                            <div class="dept-item has-submenu">
+                                <a href="#">CSE (AI &amp; DS)</a>
+                                <div class="dept-panel">
+                                    <a href="#">About AI &amp; DS</a>
+                                    <a href="#">Faculty</a>
+                                    <a href="#">Study Material</a>
+                                    <a href="#">CSE AI & DS Syllabus</a>
+                                </div>
+                            </div>
+
+                            <div class="dept-item has-submenu">
+                                <a href="#">Aeronautical</a>
+                                <div class="dept-panel">
+                                    <a href="#">About Aero</a>
+                                    <a href="#">Faculty</a>
+                                    <a href="#">Labs &amp; Projects</a>
+                                    <a href="#">Aero Syllabus</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <a href="campuslife.html" class="tab">Hostel</a>
+            </div>
+
+            <div>
+                <a href="events.html" class="tab">Events</a>
+            </div>
+            <div>
+                <a href="contactus.html" class="tab">Contact Us</a>
+            </div>
+        </div>
+    </header>
+
+  <main>
+    <article class="hostel" aria-labelledby="hostel-title">
+      <!-- left column: description + rules -->
+      <div>
+        <header class="card" id="hostel-title">
+          <h3>Hostel Life — Safe, Simple, Supportive</h3>
+          <p class="lead">
+            Our on-campus hostel provides a secure, well-maintained home for students. Rooms are furnished, utilities are available 24/7, and the staff focus on comfort and discipline so students can concentrate on academics and campus life.
+          </p>
+        </header>
+
+        <section class="card" aria-labelledby="facilities-heading" style="margin-top:1rem;">
+          <h4 id="facilities-heading" style="margin:0 0 0.6rem 0;">Facilities</h4>
+          <ul class="facilities" aria-hidden="false">
+            <li>Furnished rooms with attached bathrooms</li>
+            <li>24×7 security, housekeeping and maintenance</li>
+            <li>Hot water, reliable electricity and Wi-Fi</li>
+            <li>Common room for study and recreation</li>
+            <li>Regular medical support and emergency procedures</li>
+          </ul>
+
+         
+        </section>
+
+        <section class="card" style="margin-top:1rem;">
+          <h4 style="margin:0 0 0.6rem 0;">Quick rules (short)</h4>
+          <ul style="color:var(--muted); margin:0; padding-left:1.05rem;">
+            <li>Ragging is strictly banned — zero tolerance.</li>
+            <li>Visitors must sign in at security; internal guests are restricted.</li>
+            <li>Quiet hours: 9:00 PM — 8:00 AM. Be considerate of roommates.</li>
+            <li>No unauthorized electrical appliances or cooking in rooms.</li>
+            <li>Keep rooms and common areas clean; periodic inspections happen.</li>
+          </ul>
+
+          <!-- full rules tucked away -->
+          <details aria-details="Full hostel rules">
+            <summary>Full rules &amp; regulations (expand)</summary>
+            <div class="rules">
+              <!-- condensed but complete rules text; you can replace with your original full text if needed -->
+              <p><strong>Attendance & conduct</strong><br>
+              All residents must follow the code of conduct expected at the Institute. Carry valid ID cards and respond to warden notices. Disciplinary action will follow repeated violations.</p>
+
+              <p><strong>Visitors</strong><br>
+              All visitors including parents/guardians must register at hostel security. Unauthorized guests are not permitted in student rooms.</p>
+
+              <p><strong>Room care</strong><br>
+              Students are responsible for furniture and fittings in allotted rooms. Do not remove or add furniture without written permission. Keep rooms clean; periodic inspections will be performed.</p>
+
+              <p><strong>Prohibited items & activities</strong><br>
+              Hot plates, cooking, unauthorized heaters, loud music, gambling, smoking, alcohol, and narcotics are strictly prohibited. Screening pirated or unlicensed media is disallowed.</p>
+
+              <p><strong>Safety & emergencies</strong><br>
+              For medical emergencies call the campus emergency number and inform the warden immediately. Conserve water and electricity — misuse may attract penalties.</p>
+
+              <p><strong>Consequences</strong><br>
+              Violations will receive written warnings; up to three warnings may lead to eviction from the hostel. Serious offenses (including ragging) will be reported to legal authorities.</p>
+
+              <ol>
+                <li>Maintain decorum and respect other residents.</li>
+                <li>Make absence notifications to the warden for vacations/holidays.</li>
+                <li>Do not keep valuables unattended; hostel management is not responsible for losses.</li>
+                <li>Follow any additional rules posted on the hostel notice board.</li>
+              </ol>
+
+              
+            </div>
+          </details>
+        </section>
+      </div>
+
+      <!-- right column: image + quick facts -->
+      <aside class="card">
+        <figure style="margin:0;">
+          <img src="https://www.gopalancolleges.com/gcem/images/gcem-hostel-facility.jpg" alt="GCEM Hostel room">
+          <figcaption style="font-size:0.85rem; color:var(--muted); margin-top:0.5rem;">Hostel room — comfortable and secure</figcaption>
+        </figure>
+
+        <div style="margin-top:1rem;">
+          <h4 style="margin:0 0 0.6rem 0;">Quick facts</h4>
+          <div class="quick-facts" aria-hidden="false">
+            <div class="fact">
+              <div>
+                <div>Capacity</div>
+                <small>Up to 500 students</small>
+              </div>
+            </div>
+
+            <div class="fact">
+              <div>
+                <div>Built area</div>
+                <small>~3,848 sq. ft.</small>
+              </div>
+            </div>
+
+            <div class="fact">
+              <div>
+                <div>Support</div>
+                <small>24×7 security & housekeeping</small>
+              </div>
+            </div>
+
+            <div style="margin-top:0.8rem; font-size:0.92rem; color:var(--muted);">
+              <strong>Emergency</strong><br>
+              Call campus security or warden immediately for any untoward incident.
+            </div>
+          </div>
+        </div>
+      </aside>
+    </article>
+  </main>
+
+  <footer>
+    <div style="text-align:center; padding:1.2rem 0; color:#66787f;">
+      This website was created by
+      <a href="https://www.linkedin.com/in/aleena-harold-peter-026267321" target="_blank" rel="noopener">Aleena Harold Peter</a>
+    </div>
+  </footer>
+
+</body>
+</html>
